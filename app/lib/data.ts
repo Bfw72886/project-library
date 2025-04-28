@@ -8,13 +8,12 @@ export class BookData {
   isRead: boolean;
 
   constructor(
-    id: string,
     title: string,
     author: string,
     pageCount: number,
     isRead: boolean
   ) {
-    this.id = id;
+    this.id = crypto.randomUUID();
     this.title = title;
     this.author = author;
     this.pageCount = pageCount;
@@ -22,13 +21,6 @@ export class BookData {
   }
 }
 
-export function addBookToLibrary(
-  title: string,
-  author: string,
-  pageCount: number,
-  isRead: boolean
-) {
-  myLibrary.push(
-    new BookData(crypto.randomUUID(), title, author, pageCount, isRead)
-  );
+export function addBookToLibrary(bookData: BookData) {
+  myLibrary.push(bookData);
 }
