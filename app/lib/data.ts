@@ -22,13 +22,13 @@ export class BookData {
   }
 }
 
-export const addBookToLibrary = (
+export function addBookToLibrary(
   title: string,
   author: string,
   pageCount: number,
   isRead: boolean
-) => {
+) {
   myLibrary.push(
     new BookData(crypto.randomUUID(), title, author, pageCount, isRead)
   );
-};
+}
