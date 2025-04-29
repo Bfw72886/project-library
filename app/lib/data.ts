@@ -1,5 +1,3 @@
-export const myLibrary: BookData[] = [];
-
 export class BookData {
   id: string;
   title: string;
@@ -20,6 +18,10 @@ export class BookData {
     this.isRead = isRead;
   }
 }
+
+const exampleBook = new BookData('Cthulhus Ruf', 'H. P. Lovecraft', 464, true);
+
+export const myLibrary: BookData[] = [exampleBook];
 
 export function addBookToLibrary(bookData: BookData) {
   myLibrary.push(bookData);
