@@ -2,13 +2,12 @@ import { BookData } from '@/app/lib/data';
 import { useState } from 'react';
 import CloseButton from '@/app/ui/CloseButton';
 
-export default function Book({
-  bookData,
-  onDelete,
-}: {
+type BookProps = {
   bookData: BookData;
   onDelete: (id: string) => void;
-}) {
+};
+
+export default function Book({ bookData, onDelete }: BookProps) {
   const [isRead, setIsRead] = useState(bookData.isRead);
 
   function bookDataUpdate() {
