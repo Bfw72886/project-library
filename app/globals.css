@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #ffffff;
@@ -6,8 +6,8 @@
 }
 
 @font-face {
-  font-family: "bookfont";
-  src: url("/fonts/Moms_typewriter-webfont.woff") format("woff");
+  font-family: 'bookfont';
+  src: url('/fonts/Moms_typewriter-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -21,7 +21,7 @@
 
 @layer utilities {
   .font-book {
-    font-family: "bookfont", Arial, Helvetica, sans-serif;
+    font-family: 'bookfont', Arial, Helvetica, sans-serif;
   }
 }
 
@@ -36,4 +36,13 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+input {
+  @apply border-black border-2 rounded-md;
+}
+
+input[type='text'],
+input[type='number'] {
+  @apply px-1;
 }
