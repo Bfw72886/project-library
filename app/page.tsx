@@ -1,6 +1,4 @@
-import Book from '@/app/ui/Book';
-import { BookData, myLibrary, addBookToLibrary } from './lib/data';
-import Library from './ui/Library';
+import Library from '@/app/ui/Library';
 
 export default function Home() {
   return (

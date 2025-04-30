@@ -1,6 +1,6 @@
-import { BookData, addBookToLibrary, myLibrary } from '@/app/lib/data';
+import { BookData } from '@/app/lib/data';
 import { useState } from 'react';
-import CloseButton from './CloseButton';
+import CloseButton from '@/app/ui/CloseButton';
 
 export default function Book({
   bookData,

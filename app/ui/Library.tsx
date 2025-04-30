@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 import { addBookToLibrary, BookData, myLibrary } from '@/app/lib/data';
 import Book from '@/app/ui/Book';
 import Button from '@/app/ui/Button';
-import CloseButton from './CloseButton';
+import CloseButton from '@/app/ui/CloseButton';
 
 export default function Library() {
   const [books, setBooks] = useState<BookData[]>(myLibrary);
