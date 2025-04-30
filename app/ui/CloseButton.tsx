@@ -2,11 +2,12 @@ import React from 'react';
 
 type ButtonProps = {
   onClick: React.MouseEventHandler<HTMLDivElement>;
+  className?: string;
 };
 
-export default function CloseButton({ onClick }: ButtonProps) {
+export default function CloseButton({ onClick, className = '' }: ButtonProps) {
   return (
-    <div className="flex justify-end mb-4" onClick={onClick}>
+    <div className={'flex justify-end mb-4 ' + className} onClick={onClick}>
       <div className="text-red-600 hover:text-red-700 p-1.5 border-current border-4 rounded-2xl">
         <svg
           version="1.1"
