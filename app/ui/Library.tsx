@@ -1,13 +1,13 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import { addBookToLibrary, BookData, myLibrary } from '@/app/lib/data';
+import { BookData, exampleBook } from '@/app/lib/data';
 import Book from '@/app/ui/Book';
 import Button from '@/app/ui/Button';
 import CloseButton from '@/app/ui/CloseButton';
 
 export default function Library() {
-  const [books, setBooks] = useState<BookData[]>(myLibrary);
+  const [books, setBooks] = useState<BookData[]>([exampleBook]);
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -22,8 +22,8 @@ export default function Library() {
     const { title, author, pageCount, read } = data;
     const isRead = read === 'on';
     const newBook = new BookData(title, author, +pageCount, isRead);
-    addBookToLibrary(newBook);
-    setBooks([...books]);
+    setBooks([...books, newBook]);
+    e.currentTarget.reset();
   }
 
   function handleDialogOpen() {
@@ -35,9 +35,7 @@ export default function Library() {
   }
 
   function deleteBook(id: string) {
-    const index = myLibrary.findIndex((book) => book.id === id);
-    myLibrary.splice(index, 1);
-    setBooks(myLibrary);
+    setBooks(books.filter((book) => book.id != id));
   }
 
   return (
@@ -69,7 +67,7 @@ export default function Library() {
           </div>
         </dialog>
       </header>
-      <div className="flex">
+      <div className="flex flex-wrap">
         {books.map((book) => (
           <Book bookData={book} key={book.id} onDelete={deleteBook} />
         ))}

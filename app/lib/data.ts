@@ -19,10 +19,9 @@ export class BookData {
   }
 }
 
-const exampleBook = new BookData('Cthulhus Ruf', 'H. P. Lovecraft', 464, true);
-
-export const myLibrary: BookData[] = [exampleBook];
-
-export function addBookToLibrary(bookData: BookData) {
-  myLibrary.push(bookData);
-}
+export const exampleBook = new BookData(
+  'Cthulhus Ruf',
+  'H. P. Lovecraft',
+  464,
+  true
+);
