@@ -4,18 +4,20 @@ type ButtonProps = {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   children: React.ReactNode;
   type?: 'button' | 'submit' | 'reset';
+  className?: string;
 };
 
 export default function Button({
   onClick,
   children,
   type = 'button',
+  className,
 }: ButtonProps) {
   return (
     <button
       type={type}
       onClick={onClick}
-      className="bg-foreground hover:bg-foreground/80 text-background p-3 not-active:shadow-lg/70 shadow-foreground/50 active:inset-shadow-sm inset-shadow-background border-black border-2 rounded-md"
+      className={`bg-foreground hover:bg-foreground/80 text-background p-3 not-active:shadow-lg/70 shadow-foreground/50 active:inset-shadow-sm inset-shadow-background border-black border-2 rounded-md ${className}`}
     >
       {children}
     </button>
