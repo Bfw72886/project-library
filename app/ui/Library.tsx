@@ -24,7 +24,6 @@ export default function Library() {
     const newBook = new BookData(title, author, +pageCount, isRead);
     addBookToLibrary(newBook);
     setBooks([...books]);
-    console.log('clicked submit');
   }
 
   function handleDialogOpen() {
@@ -33,6 +32,12 @@ export default function Library() {
 
   function handleDialogClose() {
     dialogRef.current?.close();
+  }
+
+  function deleteBook(id: string) {
+    const index = myLibrary.findIndex((book) => book.id === id);
+    myLibrary.splice(index, 1);
+    setBooks(myLibrary);
   }
 
   return (
@@ -66,7 +71,7 @@ export default function Library() {
       </header>
       <div className="flex">
         {books.map((book) => (
-          <Book bookData={book} key={book.id} />
+          <Book bookData={book} key={book.id} onDelete={deleteBook} />
         ))}
       </div>
     </>

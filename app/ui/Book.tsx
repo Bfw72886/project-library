@@ -2,7 +2,13 @@ import { BookData, addBookToLibrary, myLibrary } from '@/app/lib/data';
 import { useState } from 'react';
 import CloseButton from './CloseButton';
 
-export default function Book({ bookData }: { bookData: BookData }) {
+export default function Book({
+  bookData,
+  onDelete,
+}: {
+  bookData: BookData;
+  onDelete: (id: string) => void;
+}) {
   const [isRead, setIsRead] = useState(bookData.isRead);
 
   function bookDataUpdate() {
@@ -11,7 +17,7 @@ export default function Book({ bookData }: { bookData: BookData }) {
   }
 
   function deleteBook() {
-    alert('deleteBook triggered');
+    onDelete(bookData.id);
   }
 
   return (
