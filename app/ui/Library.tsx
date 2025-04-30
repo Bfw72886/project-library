@@ -43,7 +43,7 @@ export default function Library() {
           ref={dialogRef}
           className="justify-center items-center m-auto rounded-xl p-4 border-background border-2"
         >
-          <div className="flex flex-col w-80 h-60">
+          <div className="flex flex-col w-80 h-62">
             <CloseButton onClick={handleDialogClose} />
             <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-y-2">
               <label htmlFor="title">Title:</label>
